@@ -1,10 +1,13 @@
 public class Test {
     public static void main(String[] args) {
-        int[] data = SortHelper. generateNearlySortedArray(10000000,10);
-//        bubbleSortLowBetter(data);
-        insertSort(data);
-        binaryInsertSort(data);
-//        SortHelper.printArray(data);
+//      int[] data = SortHelper. generateNearlySortedArray(10000000,10);
+//        int[] data = SortHelper.generateArray(1000,100000,1000000);
+        int[] data = {1,3,5,7,32,4,61,23,156};
+////    bubbleSortLowBetter(data);
+//      insertSort(data);
+//      binaryInsertSort(data);
+        shellSort(data);
+        SortHelper.printArray(data);
     }
 
 
@@ -64,7 +67,6 @@ public class Test {
         long end = System.currentTimeMillis();
         System.out.println("插入排序算法总耗时为" + (end - start) + "毫秒");
     }
-
     public static void binaryInsertSort(int[] array){
         long start = System.currentTimeMillis();
         int n = array.length;
@@ -99,6 +101,59 @@ public class Test {
         long end = System.currentTimeMillis();
         System.out.println("折半插入排序耗时："+(end - start)+"毫秒");
     }
+    public static void shellSort(int[] array){
+        long start = System.currentTimeMillis();
+        int n = array.length;
+        if(n <= 1){
+            return;
+        }else{
+            int step = n / 2;
+            while(step >= 1){
+                for(int i = step;i < n;i++){
+                    int value = array[i];
+                    int j = i - step;
+                    for(;j>=0; j-= step){
+                        if(array[j] > value){
+                            array[j + step] = array[j];
+                        }else{
+                            break;
+                        }
+                    }
+                    array[j + step] = value;
+                }
+                step = step/2;
+            }
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("希尔排序耗时:"+(end-start)+"毫秒");
+    }
+//    public static void shellSort(int[] array) {
+//        long start = System.currentTimeMillis();
+//        int n = array.length;
+//        if (n <= 1) {
+//            return;
+//        }else {
+//            int step = n / 2;
+//            while (step >= 1) {
+//                for (int i = step;i < n;i++) {
+//                    int value = array[i];
+//                    int j = i - step;
+//                    for (;j >= 0;j-=step) {
+//                        if (array[j] > value) {
+//                            array[j + step] = array[j];
+//                        }else {
+//                            break;
+//                        }
+//                    }
+//                    array[j + step] = value;
+//                }
+//                step = step / 2;
+//            }
+//        }
+//        long end = System.currentTimeMillis();
+//        System.out.println("希尔排序耗时:"+(end-start)+"毫秒");
+//    }
+
 }
 
 

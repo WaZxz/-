@@ -2,6 +2,8 @@ import java.util.Random;
 
 
 public class SortHelper {
+
+
     /**
      * 打印数组
      * @param array
@@ -36,7 +38,6 @@ public class SortHelper {
      *  生成近乎有序的数组
      * @param n 生成0 - n
      * @param swapTimes 交换次数
-     * @return
      */
     public static int[] generateNearlySortedArray(int n,int swapTimes){
         int result[] = new int[n];
