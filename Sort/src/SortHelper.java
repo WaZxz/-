@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 
 
@@ -31,6 +32,14 @@ public class SortHelper {
             }
             return array;
         }
+    }
+
+    /**
+     *生成一个新的数组
+     * @param array 拷贝以前数组的长度，如果超过则默认为零
+     */
+    public static int[] copyArray(int[] array){
+        return Arrays.copyOf(array,array.length);
     }
 
 
